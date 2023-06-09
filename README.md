@@ -22,17 +22,15 @@ To set up and run the backend API locally, follow these steps:
 ## WebSocket Communication
 The backend API utilizes Socket.IO to establish WebSocket communication between the server and clients. Socket.IO provides real-time, bidirectional communication channels, allowing clients to send and receive messages instantly without the need for frequent HTTP requests.
 
-The server code you provided sets up a WebSocket connection and handles incoming messages. When a client connects, it sends all stored messages to the client. When a new message is received from a client, it is stored in memory (the messages array) and broadcasted to all connected clients.
+- The server code sets up a WebSocket connection and handles incoming messages. When a client connects, it sends all stored messages to the client. When a new message is received from a client, it is stored in memory (the messages array) and broadcasted to all connected clients.
 
-The message event is used to send and receive messages. The server listens for the message event and handles incoming messages from clients. The received message should have the following structure:
-
-javascript
-Copy code
-{
+- The message event is used to send and receive messages. The server listens for the message event and handles incoming messages from clients. The received message should have the following structure:
+`{
   name: 'John',        // The name of the user sending the message
   input: 'Hello'       // The content of the message
-}
-The server stores the message in the messages array with additional details such as clientId and timeStamp. It then emits the message event to all connected clients, including the updated messages array.
+}`
 
-Frontend Repository
+- The server stores the message in the messages array with additional details such as clientId and timeStamp. It then emits the message event to all connected clients, including the updated messages array.
+
+## Frontend Repository
 The frontend code for the React Sidebar Chat Application is available in a separate repository. You can find the frontend code and documentation at https://github.com/smalik21/sidebar-react.
