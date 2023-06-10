@@ -15,17 +15,15 @@ const PORT = process.env.PORT || 3030;
 function getTimeStamp() {
   var currentTime = new Date();
 
-  // Set the time zone to IST
-  currentTime.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+  // Set the time zone to Indian Standard Time (IST) - Asia/Kolkata
+  var options = { timeZone: 'Asia/Kolkata', hour12: false, hour: 'numeric', minute: 'numeric' };
 
-  // Extract hours and minutes from the current time
-  var hours = currentTime.getHours().toString().padStart(2, '0');
-  var minutes = currentTime.getMinutes().toString().padStart(2, '0');
+  // Format the current time in Indian Standard Time
+  var ISTTime = currentTime.toLocaleString('en-IN', options);
 
-  // Format the hours and minutes
-  var formattedTime = hours + ':' + minutes;
-  return formattedTime;
+  return ISTTime;
 }
+// console.log(getTimeStamp());
 
 // Store messages in memory (can be replaced with a database)
 const messages = [];
