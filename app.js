@@ -15,14 +15,18 @@ const PORT = process.env.PORT || 3030;
 function getTimeStamp() {
   var currentTime = new Date();
 
-// Extract hours and minutes from the current time
-  var hours = currentTime.getHours().toString().padStart(2, '0');
-  var minutes = currentTime.getMinutes().toString().padStart(2, '0'); 
+  // Set the time zone to IST
+  currentTime.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
 
-// Format the hours and minutes
+  // Extract hours and minutes from the current time
+  var hours = currentTime.getHours().toString().padStart(2, '0');
+  var minutes = currentTime.getMinutes().toString().padStart(2, '0');
+
+  // Format the hours and minutes
   var formattedTime = hours + ':' + minutes;
   return formattedTime;
 }
+
 // Store messages in memory (can be replaced with a database)
 const messages = [];
 
